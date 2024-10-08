@@ -66,7 +66,7 @@ class Team(models.Model):
         verbose_name = "Команда"
         verbose_name_plural = "Команды"
 
-    name = models.CharField("Название", max_length=255)
+    name = models.CharField("Название", max_length=255, unique=True)
     contacts = models.TextField("Контакты для связи", max_length=255)
     path = models.ForeignKey(Path, on_delete=models.CASCADE, verbose_name="Выбранная траектория")
 

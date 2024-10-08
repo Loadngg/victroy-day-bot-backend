@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Place, Path, PlaceInPath, Team, TeamPlaceAnswer
+from .models import Place, Path, PlaceInPath, Team, TeamPlaceAnswer, Region
 
 admin.site.site_title = "Администрирование телеграмм-бота"
 admin.site.site_header = "Администрирование телеграмм-бота"
@@ -8,7 +8,7 @@ admin.site.site_header = "Администрирование телеграмм-
 
 class PlaceInPathInline(admin.TabularInline):
     model = PlaceInPath
-    extra = 1
+    extra = 0
 
 
 class PathAdmin(admin.ModelAdmin):
@@ -17,7 +17,7 @@ class PathAdmin(admin.ModelAdmin):
 
 class TeamPlaceAnswerInline(admin.TabularInline):
     model = TeamPlaceAnswer
-    extra = 1
+    extra = 0
 
 
 class TeamAdmin(admin.ModelAdmin):
@@ -25,5 +25,6 @@ class TeamAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Place)
+admin.site.register(Region)
 admin.site.register(Path, PathAdmin)
 admin.site.register(Team, TeamAdmin)

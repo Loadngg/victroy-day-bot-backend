@@ -21,6 +21,15 @@ class Place(models.Model):
         return str(self.name)
 
 
+class Region(models.Model):
+    class Meta:
+        verbose_name = 'Регион'
+        verbose_name_plural = 'Регионы'
+
+    name = models.CharField("Название", max_length=255)
+    description = models.TextField("Описание")
+
+
 class Path(models.Model):
     class Meta:
         verbose_name = "Траектория"
@@ -28,6 +37,7 @@ class Path(models.Model):
 
     name = models.CharField("Название", max_length=255)
     places = models.ManyToManyField(Place, verbose_name="Места", through='PlaceInPath')
+    region = models.ForeignKey(Region, verbose_name="Регион", on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return str(self.name)

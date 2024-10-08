@@ -29,6 +29,9 @@ class Region(models.Model):
     name = models.CharField("Название", max_length=255)
     description = models.TextField("Описание")
 
+    def __str__(self):
+        return str(self.name)
+
 
 class Path(models.Model):
     class Meta:
